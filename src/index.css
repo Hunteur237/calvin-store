@@ -1,0 +1,70 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #0A0B10;
+  color: #F1F5F9;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; }
+input, textarea, select { font-family: inherit; }
+img { display: block; max-width: 100%; }
+
+/* Scrollbar subtile */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0A0B10; }
+::-webkit-scrollbar-thumb { background: #1E2136; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #F97316; }
+
+html[data-theme="light"] ::-webkit-scrollbar-track { background: #F7F9FC; }
+html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #CBD5E1; }
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: #16A34A; }
+
+/* Sélection */
+::selection { background: #F97316; color: #0A0B10; }
+
+/* Focus visible pour accessibilité */
+:focus-visible {
+  outline: 2px solid #F97316;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Réduction motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* ───────────────────────── Grilles responsives utilitaires ───────────────────────── */
+@media (max-width: 700px) { .rg-2 { grid-template-columns: 1fr !important; } }
+
+@media (max-width: 900px) { .rg-3 { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 600px) { .rg-3 { grid-template-columns: 1fr !important; } }
+
+@media (max-width: 900px) { .rg-4 { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 560px) { .rg-4 { grid-template-columns: 1fr !important; } }
+
+@media (max-width: 860px) { .rg-sidebar { grid-template-columns: 1fr !important; } }
+
+@media (max-width: 700px) {
+  .rg-split { grid-template-columns: 1fr !important; }
+  .rg-split > .rg-sep { display: none !important; }
+}
+
+@media (max-width: 640px) {
+  .rg-compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .rg-compare-table { min-width: 560px; }
+}
+
+@media (max-width: 640px) { .rg-stack { grid-template-columns: 1fr !important; } }
