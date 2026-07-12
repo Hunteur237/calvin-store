@@ -4,7 +4,7 @@
 // Les clés restent côté serveur, jamais exposées au navigateur.
 
 const SMS_API_KEY  = process.env.SMS_API_KEY;
-const SMS_SENDER   = process.env.SMS_SENDER_ID || 'CALVINTEL'; // max 11 caractères
+const SMS_SENDER   = process.env.SMS_SENDER_ID || 'INFOTECH'; // max 11 caractères
 const SMS_API_URL  = 'https://app.techsoft-web-agency.com/sms/api';
 
 export async function sendSMS(to, message) {

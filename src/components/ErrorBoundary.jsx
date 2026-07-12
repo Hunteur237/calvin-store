@@ -30,7 +30,7 @@ export default class ErrorBoundary extends Component {
           </p>
           <button
             onClick={() => this.setState({ hasError: false })}
-            style={{ padding: '10px 22px', background: '#F97316', color: '#0A0B10', border: 'none', borderRadius: 10, cursor: 'pointer', fontFamily: "'Archivo Black', sans-serif", fontSize: '.8rem' }}
+            style={{ padding: '10px 22px', background: '#4ADE80', color: '#0A0B10', border: 'none', borderRadius: 10, cursor: 'pointer', fontFamily: "'Archivo Black', sans-serif", fontSize: '.8rem' }}
           >Réessayer</button>
         </div>
       )

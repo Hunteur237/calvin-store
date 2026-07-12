@@ -1012,9 +1012,9 @@ function FacturesView({ store }) {
                 <div style={{ fontSize:"1.2rem", fontWeight:600, color:T.white, letterSpacing:".08em" }}>FACTURE</div>
               </div>
               <div style={{ textAlign:"right", fontSize:".72rem", color:T.gray3 }}>
-                <div style={{ color:T.white, fontWeight:600 }}>Calvin Telecom</div>
+                <div style={{ color:T.white, fontWeight:600 }}>INFO-TECH</div>
                 <div>Douala, Cameroun</div>
-                <div>contact@calvintelecom.com</div>
+                <div>contact@infotech.cm</div>
               </div>
             </div>
             <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"1rem", marginBottom:"1rem" }}>

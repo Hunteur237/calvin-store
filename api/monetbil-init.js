@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     const baseUrl = `${proto}://${host}`;
 
     const [first_name, ...rest] = (name || "Client").trim().split(" ");
-    const last_name = rest.join(" ") || "Calvin Telecom";
+    const last_name = rest.join(" ") || "Infotech";
 
     const params = {
       amount: Math.round(Number(amount)),

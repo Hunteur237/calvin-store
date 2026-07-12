@@ -2,7 +2,6 @@ import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { DS, FONTS } from '../lib/design.js'
-import { useLanguage, I18N } from '../lib/language.jsx'
 import { STATS } from '../lib/data.js'
 import { Counter, Reveal } from './UI.jsx'
 
@@ -18,20 +17,19 @@ const IconSmartphone = () => <svg width="14" height="14" viewBox="0 0 24 24" fil
 const IconTool    = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
 
 const SERVICES_HIGHLIGHTS = [
-  { icon: <IconSmartphone />, label: 'Téléphones & Ordinateurs' },
-  { icon: <IconMonitor />,    label: 'TV & Gadgets Connectés' },
-  { icon: <IconTool />,       label: 'Accessoires & Réparation' },
-  { icon: <IconCode />,       label: 'Logiciels sur mesure' },
+  { icon: <IconMonitor />,    label: 'Logiciels de gestion pour PME' },
+  { icon: <IconCode />,       label: 'Développement Web' },
+  { icon: <IconTool />,       label: 'Maintenance & Assistance IT' },
+  { icon: <IconSmartphone />, label: 'Applications Mobiles' },
 ]
 
 const HIGHLIGHTS = [
-  'Paiement carte bancaire, Orange Money & MTN Mobile Money',
-  'PayPal disponible pour les commandes internationales',
-  'Livraison Douala, Yaoundé, tout le Cameroun + expédition internationale',
+  'Réponse sous 24h garantie',
+  'Démonstration gratuite avant tout engagement',
+  'Essai gratuit de 14 jours sur les logiciels de gestion',
 ]
 
 export default function Hero({ onRdvOpen }) {
-  const { lang } = useLanguage()
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const y  = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
@@ -95,7 +93,7 @@ export default function Hero({ onRdvOpen }) {
               style={{ width: 6, height: 6, borderRadius: '50%', background: DS.lime, flexShrink: 0 }}
             />
             <span style={{ fontFamily: FONTS.mono, fontSize: '.7rem', color: DS.lime, letterSpacing: '.1em', textTransform: 'uppercase', fontWeight: 500 }}>
-              {I18N.hero.tagline[lang]}
+              Disponible · Douala, Cameroun
             </span>
           </motion.div>
 
@@ -111,9 +109,11 @@ export default function Hero({ onRdvOpen }) {
               color: DS.white, marginBottom: '1.5rem'
             }}
           >
-            {I18N.hero.titlePre[lang]}
-            <span style={{ color: DS.lime }}>{I18N.hero.titleMid[lang]}</span>
-            {I18N.hero.titlePost[lang]}
+            Votre partenaire{' '}
+            <span style={{ color: DS.lime }}>tech</span>
+            <br />pour les{' '}
+            <span style={{ color: DS.lime }}>PME</span>
+            {' '}camerounaises
           </motion.h1>
 
           {/* Description */}
@@ -127,7 +127,7 @@ export default function Hero({ onRdvOpen }) {
               maxWidth: 520, marginBottom: '2rem'
             }}
           >
-            {I18N.hero.desc[lang]}
+            Développement de logiciels de gestion pour PME, sites web et solutions numériques sur mesure pour les commerçants et entreprises de Douala. Basé localement, réactif, disponible.
           </motion.p>
 
           {/* Points clés */}
@@ -159,7 +159,7 @@ export default function Hero({ onRdvOpen }) {
             style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: '3.5rem' }}
           >
             <Link
-              to="/boutique"
+              to="/contact"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '13px 26px', borderRadius: DS.r2,
@@ -170,24 +170,22 @@ export default function Hero({ onRdvOpen }) {
               onMouseEnter={e => { e.currentTarget.style.background = DS.lime2; e.currentTarget.style.transform = 'translateY(-2px)' }}
               onMouseLeave={e => { e.currentTarget.style.background = DS.lime; e.currentTarget.style.transform = 'none' }}
             >
-              {I18N.hero.ctaBuy[lang]} <IconArrow />
+              Demander un devis gratuit <IconArrow />
             </Link>
-            <a
-              href="https://wa.me/23776075720?text=Bonjour%20Calvin%20Telecom%2C%20je%20souhaite%20des%20infos%20sur%20vos%20produits."
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={onRdvOpen}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 padding: '13px 24px', borderRadius: DS.r2,
                 background: 'transparent', border: `1px solid ${DS.border}`,
                 color: DS.gray3, fontFamily: FONTS.body, fontSize: '.92rem',
-                textDecoration: 'none', transition: 'all .22s'
+                cursor: 'pointer', transition: 'all .22s'
               }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = `${DS.lime}44`; e.currentTarget.style.color = DS.white }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = DS.border; e.currentTarget.style.color = DS.gray3 }}
             >
-              <IconPhone /> {I18N.hero.ctaWa[lang]}
-            </a>
+              <IconPhone /> Prendre un RDV
+            </button>
           </motion.div>
 
           {/* Stats */}
@@ -262,17 +260,17 @@ export default function Hero({ onRdvOpen }) {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '.85rem' }}>
-              <div style={{ fontFamily: FONTS.mono, fontSize: '.62rem', color: DS.gray2, letterSpacing: '.12em', textTransform: 'uppercase' }}>Paiement accepté</div>
-              <div style={{ padding: '2px 8px', borderRadius: 4, background: `${DS.lime}18`, border: `1px solid ${DS.lime}33`, fontFamily: FONTS.mono, fontSize: '.58rem', color: DS.lime, letterSpacing: '.08em' }}>SÉCURISÉ</div>
+              <div style={{ fontFamily: FONTS.mono, fontSize: '.62rem', color: DS.gray2, letterSpacing: '.12em', textTransform: 'uppercase' }}>Logiciel opérationnel</div>
+              <div style={{ padding: '2px 8px', borderRadius: 4, background: `${DS.lime}18`, border: `1px solid ${DS.lime}33`, fontFamily: FONTS.mono, fontSize: '.58rem', color: DS.lime, letterSpacing: '.08em' }}>DISPONIBLE</div>
             </div>
             <div style={{ fontFamily: FONTS.display, fontWeight: 700, fontSize: '.95rem', color: DS.white, marginBottom: '.3rem' }}>
-              Carte, Mobile Money & PayPal
+              GestoPME — ERP Complet
             </div>
             <div style={{ fontFamily: FONTS.body, fontSize: '.8rem', color: DS.gray3, lineHeight: 1.6, marginBottom: '.9rem' }}>
-              Achetez en toute confiance, au Cameroun comme à l'étranger
+              Vente, caisse, stocks & facturation<br/>Opérationnel · Douala, Cameroun
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-              {['Carte bancaire', 'Orange Money', 'MTN Mobile Money', 'PayPal'].map(t => (
+              {['React', 'Node.js', 'PostgreSQL', 'Chart.js'].map(t => (
                 <span key={t} style={{ fontFamily: FONTS.mono, fontSize: '.6rem', padding: '3px 8px', borderRadius: 4, background: `${DS.lime}0E`, border: `1px solid ${DS.lime}22`, color: DS.lime }}>
                   {t}
                 </span>
@@ -297,7 +295,7 @@ export default function Hero({ onRdvOpen }) {
                 transition={{ duration: 2, repeat: Infinity }}
                 style={{ width: 7, height: 7, borderRadius: '50%', background: DS.green, flexShrink: 0 }}
               />
-              <span style={{ fontFamily: FONTS.mono, fontSize: '.7rem', color: DS.gray3 }}>Livraison Douala, Yaoundé & international</span>
+              <span style={{ fontFamily: FONTS.mono, fontSize: '.7rem', color: DS.gray3 }}>Disponible pour nouveaux projets</span>
             </div>
             <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 5, color: DS.gray2 }}>
               <IconClock />
@@ -339,8 +337,8 @@ export default function Hero({ onRdvOpen }) {
           style={{ display: 'flex', whiteSpace: 'nowrap' }}
         >
           {[...Array(4)].flatMap(() => [
-            'Téléphones', 'Ordinateurs', 'Accessoires',
-            'TV', 'Gadgets Connectés', 'Orange Money', 'MTN Mobile Money', 'PayPal'
+            'Développement Web', 'Applications Mobiles', 'Logiciels Métier',
+            'Design UI/UX', 'Maintenance IT', 'Solutions PME', 'Cybersécurité', 'Mobile Money'
           ]).map((item, i) => (
             <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 14, padding: '0 1.75rem' }}>
               <span style={{ fontFamily: FONTS.body, fontSize: '.78rem', fontWeight: 500, letterSpacing: '.06em', color: DS.gray }}>{item}</span>

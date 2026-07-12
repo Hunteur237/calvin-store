@@ -1,5 +1,5 @@
 -- ============================================================
--- Calvin Telecom — SCHÉMA SUPABASE COMPLET
+-- INFO-TECH — SCHÉMA SUPABASE COMPLET
 -- À exécuter dans : Supabase Dashboard > SQL Editor > New query
 -- ============================================================
 
@@ -198,14 +198,9 @@ create policy "anon manage blog_posts"    on blog_posts    for all using (true) 
 -- QUELQUES PRODUITS DE DÉPART (modifiable ensuite depuis l'admin)
 -- ============================================================
 insert into products (name, cat, price, old_price, stock, badge, rating, reviews, img, description, active) values
-('iPhone 15 Pro 256GB',        'Téléphones',        780000, 850000, 6,  'Promo',   4.9, 41, 'https://images.unsplash.com/photo-1592286927505-1def25115558?w=500&h=380&fit=crop&q=80', 'Puce A17 Pro · Écran Super Retina XDR 6.1" · Triple caméra 48MP · 5G', true),
-('Samsung Galaxy S24',          'Téléphones',        520000, null,   9,  'Nouveau', 4.7, 19, 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=500&h=380&fit=crop&q=80', 'Écran Dynamic AMOLED 6.2" · 128GB · Triple caméra 50MP · 5G', true),
-('Laptop Dell XPS 15',          'Ordinateurs',       585000, 640000, 4,  'Promo',   4.8, 24, 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&h=380&fit=crop&q=80', 'Intel Core i7-13700H · 32GB DDR5 · 1TB NVMe SSD · OLED 15.6" 3.5K', true),
-('MacBook Air M2',              'Ordinateurs',       695000, null,   5,  'Nouveau', 4.9, 33, 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=500&h=380&fit=crop&q=80', 'Puce Apple M2 · 8GB RAM · 256GB SSD · Écran Liquid Retina 13.6"', true),
-('Écouteurs sans fil Pro',      'Accessoires',       38000,  45000,  22, 'Promo',   4.6, 58, 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&h=380&fit=crop&q=80', 'Réduction de bruit active · Autonomie 24h · Bluetooth 5.3', true),
-('Powerbank 20000mAh',          'Accessoires',       22000,  26000,  30, 'Promo',   4.7, 35, 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500&h=380&fit=crop&q=80', '20000mAh · Charge rapide 22.5W · 2 ports USB + 1 USB-C', true),
-('Smart TV LED 55" 4K',         'TV',                365000, 410000, 5,  'Promo',   4.8, 22, 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=500&h=380&fit=crop&q=80', '4K UHD · Smart TV Android · HDR10 · 3× HDMI · WiFi intégré', true),
-('Smart TV LED 43" Full HD',    'TV',                210000, null,   8,  'Stock',   4.6, 14, 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=500&h=380&fit=crop&q=80', 'Full HD 1080p · Smart TV · 2× HDMI · USB · Netflix & YouTube intégrés', true),
-('Montre connectée Sport',      'Gadgets Connectés', 58000,  68000,  16, 'Promo',   4.7, 29, 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=500&h=380&fit=crop&q=80', 'Suivi cardiaque · GPS · Étanche 5ATM · Autonomie 10 jours', true),
-('Caméra de surveillance WiFi', 'Gadgets Connectés', 32000,  null,   20, 'Nouveau', 4.5, 18, 'https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=500&h=380&fit=crop&q=80', 'Full HD 1080p · Vision nocturne · Détection de mouvement · App mobile', true)
+('Laptop Dell XPS 15',      'Ordinateurs',   585000, 640000, 4,  'Promo',   4.8, 24, 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&h=380&fit=crop&q=80', 'Intel Core i7-13700H · 32GB DDR5 · 1TB NVMe SSD · OLED 15.6" 3.5K · RTX 4060', true),
+('Switch HP 1920S 24G',      'Réseau',        138000, null,   9,  'Stock',   4.6, 11, 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=380&fit=crop&q=80', '24 ports Gigabit manageable · 4 SFP · VLAN 802.1Q · QoS · Rack 1U', true),
+('Écran LG UltraWide 34"',   'Périphériques', 215000, 248000, 3,  'Promo',   4.9, 37, 'https://images.unsplash.com/photo-1527443224154-c4a573d5f5de?w=500&h=380&fit=crop&q=80', '34" IPS Nano · 3440×1440 · 144Hz · HDR400 · USB-C 96W · 2× HDMI 2.1', true),
+('SSD Samsung 990 Pro 2TB',  'Stockage',      88000,  null,   18, null,      5.0, 52, 'https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=500&h=380&fit=crop&q=80', 'NVMe PCIe 4.0 · 7450 Mo/s lecture · 6900 Mo/s écriture · Garantie 5 ans', true),
+('Clavier Keychron Q1 Pro',  'Périphériques', 62000,  72000,  7,  'Promo',   4.7, 18, 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&h=380&fit=crop&q=80', '75% layout · Aluminium CNC · Switch Gateron Pro Red · RGB · Bluetooth 5.1', true)
 on conflict do nothing;

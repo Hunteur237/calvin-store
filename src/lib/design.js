@@ -1,6 +1,5 @@
-// ─── DESIGN SYSTEM CALVIN TELECOM ───────────────────────────────────────────
-// Palette : fond anthracite/noir profond, accent Orange Calvin Telecom, touche
-// terracotta "Afro" pour la partie artisanat
+// ─── DESIGN SYSTEM INFO-TECH v3 ─────────────────────────────────────────────
+// Palette : fond anthracite profond, accent vert tech maîtrisé, accents chauds
 // Typographie : Inter (corps), Outfit (display), JetBrains Mono (data/code)
 //
 // Thème : DS est un objet MUTABLE. applyTheme() réécrit ses propriétés en place
@@ -23,11 +22,11 @@ const DARK = {
   b2:      '#252840',
   b3:      '#2D3052',
 
-  // Accent principal — Orange Calvin Telecom
-  lime:    '#F97316',   // orange vif, signature Calvin Telecom
-  lime2:   '#EA580C',
-  lime3:   '#FDBA74',
-  limeGlow: 'rgba(249,115,22,.14)',
+  // Accent principal — vert tech (moins agressif que #B8FF00)
+  lime:    '#4ADE80',   // vert doux, pro
+  lime2:   '#22C55E',
+  lime3:   '#86EFAC',
+  limeGlow: 'rgba(74,222,128,.12)',
 
   // Accents secondaires
   gold:    '#F59E0B',
@@ -39,10 +38,6 @@ const DARK = {
   red:     '#EF4444',
   green:   '#22C55E',
   orange:  '#F97316',
-  // Touche "Afro" — terracotta chaud pour la section Artisanat
-  afro:    '#C2410C',
-  afro2:   '#9A3412',
-  afroGlow:'rgba(194,65,12,.14)',
 
   // Texte
   white:   '#F1F5F9',
@@ -71,10 +66,10 @@ const LIGHT = {
   b3:      '#8C9AAD',
 
   // Accent principal
-  lime:    '#C2410C',
-  lime2:   '#9A3412',
-  lime3:   '#EA580C',
-  limeGlow: 'rgba(194,65,12,.12)',
+  lime:    '#15803D',
+  lime2:   '#166534',
+  lime3:   '#22C55E',
+  limeGlow: 'rgba(21,128,61,.12)',
 
   // Accents secondaires
   gold:    '#B45309',
@@ -86,9 +81,6 @@ const LIGHT = {
   red:     '#B91C1C',
   green:   '#15803D',
   orange:  '#C2410C',
-  afro:    '#9A3412',
-  afro2:   '#7C2D12',
-  afroGlow:'rgba(154,52,18,.12)',
 
   // Texte
   white:   '#0B1220',
