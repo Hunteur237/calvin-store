@@ -8,7 +8,7 @@ import {
 import { useAuth } from "../lib/auth.jsx";
 
 /* ============================================================
-   DESIGN SYSTEM — INFO.TECH · Partie 6 · ADMIN DASHBOARD
+   DESIGN SYSTEM — CALVIN TELECOM · Partie 6 · ADMIN DASHBOARD
    Aesthetic  : Military Operations Room · Bloomberg Terminal
    Fonts      : IBM Plex Mono (mono density) · IBM Plex Sans (labels)
    Palette    : Deep Black · Phosphor Green · Signal Amber · Alert Red
@@ -422,20 +422,25 @@ function Sidebar({ active, onNav }) {
         padding:"20px 16px 16px",
         borderBottom:`1px solid ${T.border}`,
       }}>
-        <div style={{
-          fontFamily:"'IBM Plex Mono',monospace",
-          fontWeight:600, fontSize:".88rem",
-          color:T.phos, letterSpacing:".12em",
-          lineHeight:1,
-        }}>
-          INFO<span style={{ color:T.amber }}>.</span>TECH
-        </div>
-        <div style={{
-          fontFamily:"'IBM Plex Mono',monospace",
-          fontSize:".58rem", color:T.gray,
-          letterSpacing:".18em", marginTop:3,
-        }}>
-          ADMIN_CONSOLE_v2
+        <div style={{ display:"flex", alignItems:"center", gap:10 }}>
+          <img src="/img/logo-mark-128.png" alt="Calvin Telecom" style={{ width:32, height:32, objectFit:"contain", flexShrink:0 }} />
+          <div>
+            <div style={{
+              fontFamily:"'IBM Plex Mono',monospace",
+              fontWeight:600, fontSize:".88rem",
+              color:T.phos, letterSpacing:".12em",
+              lineHeight:1,
+            }}>
+              CALVIN<span style={{ color:T.amber }}>.</span>TELECOM
+            </div>
+            <div style={{
+              fontFamily:"'IBM Plex Mono',monospace",
+              fontSize:".58rem", color:T.gray,
+              letterSpacing:".18em", marginTop:3,
+            }}>
+              ADMIN_CONSOLE_v2
+            </div>
+          </div>
         </div>
         <div style={{ display:"flex", alignItems:"center", gap:6, marginTop:10 }}>
           <motion.span
@@ -1012,9 +1017,9 @@ function FacturesView({ store }) {
                 <div style={{ fontSize:"1.2rem", fontWeight:600, color:T.white, letterSpacing:".08em" }}>FACTURE</div>
               </div>
               <div style={{ textAlign:"right", fontSize:".72rem", color:T.gray3 }}>
-                <div style={{ color:T.white, fontWeight:600 }}>INFO-TECH</div>
+                <div style={{ color:T.white, fontWeight:600 }}>Calvin Telecom</div>
                 <div>Douala, Cameroun</div>
-                <div>contact@infotech.cm</div>
+                <div>contact@calvintelecom.com</div>
               </div>
             </div>
             <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"1rem", marginBottom:"1rem" }}>

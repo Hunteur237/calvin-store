@@ -35,6 +35,7 @@ export default function PaiementRetour() {
   return (
     <div style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 66 }}>
       <div style={{ maxWidth: 480, width: '100%', textAlign: 'center', padding: '2.5rem 2rem', background: DS.surface, border: `1px solid ${DS.border}`, borderRadius: 16 }}>
+        <img src="/img/logo-mark-128.png" alt="Calvin Telecom" style={{ width: 44, height: 44, objectFit: 'contain', margin: '0 auto 1.25rem' }} />
         {!orderId && (
           <p style={{ color: DS.gray2, fontFamily: "'Azeret Mono', monospace" }}>Aucune commande référencée.</p>
         )}

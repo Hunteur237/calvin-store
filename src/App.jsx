@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import { FONTS_URL } from './lib/design.js'
 import { ToastProvider, CartProvider } from './components/UI.jsx'
 import { ThemeProvider } from './lib/theme.jsx'
+import { LanguageProvider } from './lib/language.jsx'
 import { AuthProvider, useAuth } from './lib/auth.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import Navbar from './components/Navbar.jsx'
@@ -27,8 +28,9 @@ const CartDrawerComp  = lazy(() => import('./components/Boutique.jsx').then(m =>
 
 function Loader() {
   return (
-    <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ width: 32, height: 32, borderRadius: '50%', border: '2px solid #1E2136', borderTopColor: '#4ADE80', animation: 'spin .7s linear infinite' }} />
+    <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 14 }}>
+      <img src="/img/logo-mark-128.png" alt="" style={{ width: 36, height: 36, objectFit: 'contain', opacity: .85 }} />
+      <div style={{ width: 32, height: 32, borderRadius: '50%', border: '2px solid #E2E8F0', borderTopColor: '#22C55E', animation: 'spin .7s linear infinite' }} />
       <style>{`@keyframes spin { to { transform: rotate(360deg) } }`}</style>
     </div>
   )
@@ -48,6 +50,7 @@ export default function App() {
 
   return (
     <ThemeProvider>
+      <LanguageProvider>
     <AuthProvider>
     <BrowserRouter>
       <CartProvider>
@@ -114,6 +117,7 @@ export default function App() {
       </CartProvider>
     </BrowserRouter>
     </AuthProvider>
+      </LanguageProvider>
     </ThemeProvider>
   )
 }
@@ -134,7 +138,7 @@ function WhatsAppFloat() {
         </div>
       )}
       <a
-        href="https://wa.me/237683421271?text=Bonjour%20INFO-TECH%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20services."
+        href="https://wa.me/23776075720?text=Bonjour%20Calvin%20Telecom%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20produits%20et%20services."
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setHov(true)}

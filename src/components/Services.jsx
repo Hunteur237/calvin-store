@@ -9,9 +9,9 @@ import {
 } from "framer-motion";
 
 /* ============================================================
-   DESIGN SYSTEM — INFO.TECH (ui-ux-pro-max v2 / HUD Sci-Fi FUI)
+   DESIGN SYSTEM — CALVIN TELECOM (Services & Artisanat)
    Style     : HUD / Sci-Fi FUI + Dark Mode OLED + Motion-Driven
-   Palette   : Deep Space · Electric Emerald · Amber Signal
+   Palette   : Deep Space · Orange Calvin Telecom · Amber Signal
    Typography: Space Grotesk (display) · Geist (body) · JetBrains Mono
    ============================================================ */
 
@@ -22,8 +22,8 @@ const DARK_S = {
   surface2: "#162033",
   border:   "#1E2D45",
   border2:  "#243857",
-  emerald:  "#00FFB2",
-  emerald2: "#00CC8E",
+  emerald:  "#22C55E",
+  emerald2: "#16A34A",
   gold:     "#F5C842",
   gold2:    "#D4A830",
   white:    "#E8EDF5",
@@ -40,8 +40,8 @@ const LIGHT_S = {
   surface2: "#F1F4F9",
   border:   "#D7DEE7",
   border2:  "#B7C2D0",
-  emerald:  "#059669",
-  emerald2: "#047857",
+  emerald:  "#15803D",
+  emerald2: "#166534",
   gold:     "#B45309",
   gold2:    "#92400E",
   white:    "#0B1220",
@@ -53,8 +53,8 @@ const LIGHT_S = {
 
 // DS mutable : ses propriétés sont réécrites par le thème actif à chaque rendu
 // (voir applyLocalTheme dans ServicesSection ci-dessous).
-const DS = { ...DARK_S };
-let _theme = "dark";
+const DS = { ...LIGHT_S };
+let _theme = "light";
 function tint(hex, alphaDark = "1a", alphaLight = "28") {
   return hex + (_theme === "light" ? alphaLight : alphaDark);
 }
@@ -67,49 +67,15 @@ const FONTS = `https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;5
    ============================================================ */
 const SERVICES = [
   {
-    id: "logiciel",
+    id: "reparation",
     code: "01",
-    title: "Logiciels de Gestion",
-    short: "ERP · CRM · Caisse · Sur mesure",
+    title: "Réparation Téléphones & PC",
+    short: "Écrans · Batteries · Cartes-mères · Diagnostics",
     desc:
-      "Nos 2 logiciels PME — GestoPME et SmartCaisse — sont opérationnels et utilisables dès maintenant. Développement de logiciels sur mesure pour chaque secteur d'activité.",
-    stack: ["React", "Node.js", "PostgreSQL", "Electron.js"],
-    metric: { value: "2", label: "Logiciels PME opérationnels" },
+      "Réparation express de smartphones et ordinateurs : écrans cassés, batteries, dégâts liquides, cartes-mères et déblocages. Diagnostic gratuit.",
+    stack: ["Smartphones", "Laptops", "Micro-soudure", "Diagnostic"],
+    metric: { value: "24h", label: "Délai moyen de réparation" },
     color: DS.gold,
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-      </svg>
-    ),
-  },
-  {
-    id: "web",
-    code: "02",
-    title: "Développement Web",
-    short: "Sites vitrine · E-commerce · SaaS",
-    desc:
-      "Création de sites web performants et applications web sur mesure. Du design à la mise en ligne, avec hébergement et maintenance inclus sur demande.",
-    stack: ["React", "Next.js", "Laravel", "PostgreSQL"],
-    metric: { value: "2-4 sem.", label: "Délai de livraison" },
-    color: DS.emerald,
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="14" rx="2" />
-        <polyline points="8 21 12 17 16 21" />
-      </svg>
-    ),
-  },
-  {
-    id: "mobile",
-    code: "03",
-    title: "Applications Mobiles",
-    short: "iOS · Android · Cross-platform",
-    desc:
-      "Applications mobiles pensées pour l'écosystème africain : Mobile Money intégré, mode hors-ligne, notifications push et interface adaptée à l'usage local.",
-    stack: ["React Native", "Flutter", "Firebase", "Node.js"],
-    metric: { value: "Sur devis", label: "iOS & Android" },
-    color: DS.blue,
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="5" y="2" width="14" height="20" rx="2" />
@@ -118,57 +84,35 @@ const SERVICES = [
     ),
   },
   {
-    id: "design",
-    code: "04",
-    title: "Design UI/UX",
-    short: "Identité visuelle · Maquettes · Branding",
+    id: "installation",
+    code: "02",
+    title: "Installation Caméras, Réseaux & Solaire",
+    short: "Vidéosurveillance · Réseaux LAN/WiFi · Panneaux solaires",
     desc:
-      "Du logo à la charte graphique complète, en passant par les maquettes interactives et les systèmes de design. Chaque pixel est intentionnel.",
-    stack: ["Figma", "Adobe CC", "Webflow", "Framer"],
-    metric: { value: "Sur devis", label: "Identité visuelle" },
-    color: "#B06EFF",
+      "Installation de caméras de vidéosurveillance, câblage et réseaux WiFi professionnels, ainsi que de panneaux solaires pour maisons et entreprises.",
+    stack: ["Vidéosurveillance", "Réseaux LAN/WiFi", "Panneaux solaires", "Onduleurs"],
+    metric: { value: "Sur devis", label: "Étude technique gratuite" },
+    color: DS.emerald,
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="13.5" cy="6.5" r="0.5" fill="currentColor" />
-        <circle cx="17.5" cy="10.5" r="0.5" fill="currentColor" />
-        <circle cx="8.5" cy="7.5" r="0.5" fill="currentColor" />
-        <circle cx="6.5" cy="12.5" r="0.5" fill="currentColor" />
-        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+        <path d="M23 7l-7 5 7 5V7z" />
+        <rect x="1" y="5" width="15" height="14" rx="2" />
       </svg>
     ),
   },
   {
     id: "maintenance",
-    code: "05",
-    title: "Maintenance & Assistance IT",
-    short: "Préventive · Curative · Télémaintenance",
+    code: "03",
+    title: "Maintenance pour Entreprises",
+    short: "Contrats · Dépannage express · Supervision à distance",
     desc:
-      "Contrats de maintenance, dépannage express et supervision à distance de votre parc informatique. SLA garanti, intervention sous 2h en urgence.",
-    stack: ["Windows", "Linux", "Cisco", "VMware"],
+      "Contrats de maintenance, dépannage express et supervision à distance de votre parc informatique. SLA garanti, intervention rapide en urgence.",
+    stack: ["Windows", "Linux", "Réseaux", "Supervision"],
     metric: { value: "2h", label: "Délai urgence" },
     color: DS.red,
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-      </svg>
-    ),
-  },
-  {
-    id: "assistance",
-    code: "06",
-    title: "Assistance Informatique",
-    short: "Audit SI · Formation · Conseil",
-    desc:
-      "Audit de votre système d'information, conseil stratégique, installation réseau et formation de vos équipes. Votre DSI externalisé.",
-    stack: ["Audit SI", "LAN/WAN", "Cloud", "Formation"],
-    metric: { value: "8 ans", label: "Expérience IT" },
-    color: "#00D4FF",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
   },
@@ -393,10 +337,10 @@ function ServiceCard({ svc, index, isActive, onClick }) {
    PROCESS STEP (how we work)
    ============================================================ */
 const PROCESS = [
-  { num: "01", title: "Analyse",    desc: "Audit de vos besoins, étude de faisabilité et estimation précise." },
-  { num: "02", title: "Design",     desc: "Maquettes interactives Figma validées avant tout développement." },
-  { num: "03", title: "Livraison",  desc: "Développement agile, tests qualité et déploiement sécurisé." },
-  { num: "04", title: "Support",    desc: "Suivi post-livraison, mises à jour et maintenance continue." },
+  { num: "01", title: "Diagnostic",  desc: "Évaluation gratuite de votre appareil ou de votre besoin d'installation." },
+  { num: "02", title: "Devis",       desc: "Devis clair et détaillé envoyé sur WhatsApp, sans engagement." },
+  { num: "03", title: "Intervention",desc: "Réparation ou installation réalisée par nos techniciens certifiés." },
+  { num: "04", title: "Garantie",    desc: "Suivi après intervention et garantie sur pièces et main d'œuvre." },
 ];
 
 function ProcessStep({ step, index }) {
@@ -453,10 +397,10 @@ function ProcessStep({ step, index }) {
    STATS BAND
    ============================================================ */
 const STATS = [
-  { value: "8 ans",   label: "Expérience IT & maintenance", color: DS.emerald },
-  { value: "2",       label: "Logiciels PME opérationnels", color: DS.gold    },
-  { value: "< 24h",  label: "Délai de réponse garanti",    color: DS.blue    },
-  { value: "Douala", label: "Basé ici · Disponible",       color: "#B06EFF"  },
+  { value: "8 ans",   label: "Expérience tech & artisanat",     color: DS.emerald },
+  { value: "5+",      label: "Catégories de produits & services", color: DS.gold  },
+  { value: "< 24h",  label: "Délai de réponse garanti",         color: DS.blue    },
+  { value: "Douala", label: "Basé ici · Livraison internationale", color: "#B06EFF" },
 ];
 
 function StatsBand() {
@@ -593,7 +537,7 @@ export default function ServicesSection() {
               animate={titleInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <Eyebrow text="Nos services" />
+              <Eyebrow text="Nos services tech" />
               <h2 style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontWeight: 700,
@@ -606,7 +550,7 @@ export default function ServicesSection() {
                   WebkitTextFillColor: "transparent",
                   WebkitTextStroke: `1px ${DS.emerald}`,
                 }}>
-                  construisons
+                  réparons & installons
                 </span>
               </h2>
             </motion.div>
@@ -617,7 +561,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.6, delay: 0.15 }}
           >
             <p style={{ color: DS.gray2, fontSize: "1rem", lineHeight: 1.8, fontWeight: 300 }}>
-              Deux logiciels de gestion PME opérationnels dès maintenant. Développement web, maintenance IT et accompagnement numérique sur mesure pour les entreprises de Douala et du Cameroun.
+              Réparation de téléphones et ordinateurs, installation de caméras, réseaux et panneaux solaires, maintenance pour entreprises — partout à Douala, Yaoundé et dans tout le Cameroun.
             </p>
           </motion.div>
         </div>
@@ -691,17 +635,17 @@ function CtaPanel() {
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
-      <Eyebrow text="Démarrer un projet" />
+      <Eyebrow text="Un besoin ?" />
       <h3 style={{
         fontFamily: "'Space Grotesk', sans-serif",
         fontWeight: 700, fontSize: "1.6rem",
         color: DS.white, marginBottom: "1rem",
         letterSpacing: "-.01em", lineHeight: 1.2,
       }}>
-        Votre projet mérite une équipe dédiée
+        Réparation, installation ou devis — on s'occupe de tout
       </h3>
       <p style={{ color: DS.gray2, fontSize: ".92rem", lineHeight: 1.8, marginBottom: "2rem", fontWeight: 300 }}>
-        Décrivez-nous votre besoin. Nous vous répondons avec un devis détaillé sous 24h, sans engagement.
+        Décrivez-nous votre besoin sur WhatsApp ou demandez un devis détaillé. Réponse sous 24h, sans engagement.
       </p>
 
       {/* Guarantee chips */}
@@ -722,12 +666,16 @@ function CtaPanel() {
       </div>
 
       {/* CTA button */}
-      <motion.button
+      <motion.a
+        href="https://wa.me/23776075720?text=Bonjour%20Calvin%20Telecom%2C%20j'ai%20besoin%20d'un%20service%20tech."
+        target="_blank"
+        rel="noopener noreferrer"
         onMouseEnter={() => setHov(true)}
         onMouseLeave={() => setHov(false)}
         whileTap={{ scale: 0.96 }}
         style={{
-          width: "100%",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          width: "100%", textDecoration: "none",
           background: hov ? DS.emerald2 : DS.emerald,
           color: DS.bg, border: "none",
           borderRadius: 10, padding: "14px 24px",
@@ -740,12 +688,12 @@ function CtaPanel() {
           cursor: "pointer",
         }}
       >
-        Demander un devis gratuit
-      </motion.button>
+        Commander sur WhatsApp
+      </motion.a>
 
       {/* Secondary link */}
       <motion.a
-        href="#portfolio"
+        href="/contact"
         whileHover={{ x: 4 }}
         style={{
           display: "flex", alignItems: "center", gap: 6,
@@ -754,7 +702,7 @@ function CtaPanel() {
           fontFamily: "'Space Grotesk', sans-serif",
         }}
       >
-        Voir nos réalisations
+        Demander un devis
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <line x1="5" y1="12" x2="19" y2="12" />
           <polyline points="12 5 19 12 12 19" />

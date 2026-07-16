@@ -1,5 +1,6 @@
-// ─── DESIGN SYSTEM INFO-TECH v3 ─────────────────────────────────────────────
-// Palette : fond anthracite profond, accent vert tech maîtrisé, accents chauds
+// ─── DESIGN SYSTEM CALVIN TELECOM ───────────────────────────────────────────
+// Palette : Blanc & Vert — charte officielle Calvin Telecom
+// Fond clair, accent vert signature, variante vert forêt pour l'Artisanat
 // Typographie : Inter (corps), Outfit (display), JetBrains Mono (data/code)
 //
 // Thème : DS est un objet MUTABLE. applyTheme() réécrit ses propriétés en place
@@ -22,11 +23,11 @@ const DARK = {
   b2:      '#252840',
   b3:      '#2D3052',
 
-  // Accent principal — vert tech (moins agressif que #B8FF00)
-  lime:    '#4ADE80',   // vert doux, pro
-  lime2:   '#22C55E',
+  // Accent principal — Vert Calvin Telecom
+  lime:    '#22C55E',   // vert vif, signature Calvin Telecom
+  lime2:   '#16A34A',
   lime3:   '#86EFAC',
-  limeGlow: 'rgba(74,222,128,.12)',
+  limeGlow: 'rgba(34,197,94,.14)',
 
   // Accents secondaires
   gold:    '#F59E0B',
@@ -38,6 +39,10 @@ const DARK = {
   red:     '#EF4444',
   green:   '#22C55E',
   orange:  '#F97316',
+  // Touche "Afro" — vert forêt profond pour varier au sein de la charte
+  afro:    '#15803D',
+  afro2:   '#166534',
+  afroGlow:'rgba(21,128,61,.14)',
 
   // Texte
   white:   '#F1F5F9',
@@ -81,6 +86,9 @@ const LIGHT = {
   red:     '#B91C1C',
   green:   '#15803D',
   orange:  '#C2410C',
+  afro:    '#166534',
+  afro2:   '#14532D',
+  afroGlow:'rgba(22,101,52,.12)',
 
   // Texte
   white:   '#0B1220',
@@ -95,7 +103,7 @@ const LIGHT = {
 }
 
 export const DS = {
-  ...DARK,
+  ...LIGHT,
   // Rayons (identiques dans les deux thèmes)
   r:   '6px',
   r2:  '10px',
@@ -103,7 +111,7 @@ export const DS = {
   r4:  '20px',
 }
 
-export let currentTheme = 'dark'
+export let currentTheme = 'light'
 
 export function applyTheme(theme) {
   currentTheme = theme === 'light' ? 'light' : 'dark'

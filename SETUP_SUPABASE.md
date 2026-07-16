@@ -1,4 +1,4 @@
-# INFO-TECH — Guide de mise en service
+# Calvin Telecom — Guide de mise en service
 
 ## 1. Créer le projet Supabase
 1. Va sur https://supabase.com → New project.

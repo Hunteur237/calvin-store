@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { DS, FONTS } from '../lib/design.js'
 import { useCart } from './UI.jsx'
 import { useTheme } from '../lib/theme.jsx'
+import { useLanguage, I18N } from '../lib/language.jsx'
 import { useAuth } from '../lib/auth.jsx'
 
 // Icônes SVG inline (pas d'emojis)
@@ -15,17 +16,19 @@ const IconCart    = () => <svg width="17" height="17" viewBox="0 0 24 24" fill="
 const IconCalendar= () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
 const IconUser    = () => <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
 
+// 3 pages principales du cahier des charges + accès secondaires
 const NAV_LINKS = [
-  { label: 'Services',   to: '/services' },
-  { label: 'Logiciels',  to: '/portfolio' },
-  { label: 'Boutique',   to: '/boutique' },
-  { label: 'Blog',       to: '/blog' },
-  { label: 'Contact',    to: '/contact' },
+  { key: 'boutique',  label: 'Boutique',             to: '/boutique' },
+  { key: 'services',  label: 'Services & Artisanat', to: '/services' },
+  { key: 'logiciels', label: 'Logiciels',            to: '/portfolio' },
+  { key: 'blog',      label: 'Blog',                 to: '/blog' },
+  { key: 'contact',   label: 'Contact',               to: '/contact' },
 ]
 
 export default function Navbar({ onCartOpen, onAdminOpen, onRdvOpen }) {
   const { count } = useCart()
   const { theme, toggleTheme } = useTheme()
+  const { lang, toggleLang } = useLanguage()
   const { user } = useAuth()
   const { scrollY } = useScroll()
   const bgOp = useTransform(scrollY, [0, 80], [0, 1])
@@ -64,20 +67,18 @@ export default function Navbar({ onCartOpen, onAdminOpen, onRdvOpen }) {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between'
         }}>
 
-          {/* Logo officiel */}
+          {/* Logo officiel Calvin Telecom */}
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
             <img
-              src="/logo.svg"
-              alt="INFO-TECH logo"
-              width={40}
-              height={40}
-              style={{ borderRadius: 8, display: 'block', flexShrink: 0 }}
+              src="/img/logo-mark-128.png"
+              alt="Calvin Telecom"
+              style={{ width: 40, height: 40, objectFit: 'contain', flexShrink: 0 }}
             />
             <div>
-              <div style={{ fontFamily: FONTS.display, fontWeight: 800, fontSize: '1.1rem', letterSpacing: '.04em', color: DS.white, lineHeight: 1 }}>
-                INFO<span style={{ color: DS.lime }}>.</span>TECH
+              <div style={{ fontFamily: FONTS.display, fontWeight: 800, fontSize: '1.05rem', letterSpacing: '.02em', color: DS.white, lineHeight: 1 }}>
+                CALVIN<span style={{ color: DS.lime }}>.</span>TELECOM
               </div>
-              <div style={{ fontFamily: FONTS.mono, fontSize: '.55rem', color: DS.gray2, letterSpacing: '.16em', textTransform: 'uppercase', marginTop: 2 }}>Solutions Numériques</div>
+              <div style={{ fontFamily: FONTS.mono, fontSize: '.55rem', color: DS.gray2, letterSpacing: '.16em', textTransform: 'uppercase', marginTop: 2 }}>Connecter · Communiquer · Avancer</div>
             </div>
           </Link>
 
@@ -96,7 +97,7 @@ export default function Navbar({ onCartOpen, onAdminOpen, onRdvOpen }) {
                 onMouseEnter={e => e.currentTarget.style.color = DS.white}
                 onMouseLeave={e => e.currentTarget.style.color = isActive(l.to) ? DS.white : DS.gray3}
               >
-                {l.label}
+                {I18N.nav[l.key]?.[lang] ?? l.label}
                 {isActive(l.to) && (
                   <motion.span
                     layoutId="nav-indicator"
@@ -124,6 +125,23 @@ export default function Navbar({ onCartOpen, onAdminOpen, onRdvOpen }) {
               onMouseLeave={e => { e.currentTarget.style.borderColor = DS.border; e.currentTarget.style.color = DS.gray3 }}
             >
               {theme === 'dark' ? <IconSun /> : <IconMoon />}
+            </button>
+
+            {/* Langue FR/EN */}
+            <button
+              onClick={toggleLang}
+              aria-label="Changer de langue"
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: 36, height: 36, borderRadius: DS.r2,
+                background: 'transparent', border: `1px solid ${DS.border}`,
+                color: DS.gray3, cursor: 'pointer', transition: 'all .2s',
+                fontFamily: FONTS.mono, fontSize: '.72rem', fontWeight: 600, letterSpacing: '.04em',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = `${DS.lime}44`; e.currentTarget.style.color = DS.white }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = DS.border; e.currentTarget.style.color = DS.gray3 }}
+            >
+              {I18N.langToggle[lang]}
             </button>
 
             {/* Compte client */}
@@ -246,7 +264,7 @@ export default function Navbar({ onCartOpen, onAdminOpen, onRdvOpen }) {
                     onMouseEnter={e => { e.currentTarget.style.color = DS.lime; e.currentTarget.style.paddingLeft = '8px' }}
                     onMouseLeave={e => { e.currentTarget.style.color = isActive(l.to) ? DS.lime : DS.gray3; e.currentTarget.style.paddingLeft = '0' }}
                   >
-                    {l.label}
+                    {I18N.nav[l.key]?.[lang] ?? l.label}
                   </Link>
                 </motion.div>
               ))}
@@ -258,6 +276,12 @@ export default function Navbar({ onCartOpen, onAdminOpen, onRdvOpen }) {
                 style={{ width: '100%', padding: '12px', background: DS.s2, border: `1px solid ${DS.border}`, borderRadius: DS.r2, color: DS.white, fontFamily: FONTS.body, fontSize: '.9rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
               >
                 {theme === 'dark' ? <IconSun /> : <IconMoon />} {theme === 'dark' ? 'Thème clair' : 'Thème sombre'}
+              </button>
+              <button
+                onClick={toggleLang}
+                style={{ width: '100%', padding: '12px', background: DS.s2, border: `1px solid ${DS.border}`, borderRadius: DS.r2, color: DS.white, fontFamily: FONTS.body, fontSize: '.9rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
+              >
+                {lang === 'fr' ? '🇬🇧 English' : '🇫🇷 Français'}
               </button>
               <Link
                 to={user ? '/compte' : '/compte/connexion'}

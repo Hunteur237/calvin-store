@@ -142,6 +142,10 @@ export default function CompteConnexion() {
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
         style={{ maxWidth: 440, width: '100%', margin: '0 1.5rem', background: DS.surface, border: `1px solid ${DS.border}`, borderRadius: 18, padding: '2.25rem 2rem' }}>
 
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+          <img src="/img/logo-mark-128.png" alt="Calvin Telecom" style={{ width: 48, height: 48, objectFit: 'contain' }} />
+        </div>
+
         <div style={{ display: 'flex', gap: 6, marginBottom: '1.5rem', background: DS.bg, borderRadius: 10, padding: 4 }}>
           {[['login', 'Connexion'], ['signup', 'Créer un compte']].map(([id, label]) => (
             <button key={id} onClick={() => { setMode(id); setError(''); setMsg('') }}

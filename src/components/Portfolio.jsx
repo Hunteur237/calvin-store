@@ -12,7 +12,7 @@ import {
 } from "framer-motion";
 
 /* ============================================================
-   DESIGN SYSTEM — INFO.TECH (ui-ux-pro-max · HUD Sci-Fi FUI)
+   DESIGN SYSTEM — CALVIN TELECOM (ui-ux-pro-max · HUD Sci-Fi FUI)
    Extending Part 1 & 2 tokens
    ============================================================ */
 const DARK_P = {
@@ -46,7 +46,7 @@ const LIGHT_P = {
 };
 
 // DS mutable : réécrit par le thème actif (voir PortfolioSection ci-dessous).
-const DS = { ...DARK_P };
+const DS = { ...LIGHT_P };
 
 const FONTS = `https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap`;
 
@@ -1084,7 +1084,7 @@ export default function PortfolioSection() {
           )}
         </AnimatePresence>
 
-        {/* CTA → Devis */}
+        {/* Load more hint */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -1092,52 +1092,26 @@ export default function PortfolioSection() {
           transition={{ delay: 0.4 }}
           style={{ textAlign: "center", marginTop: "3rem" }}
         >
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: ".78rem", color: DS.gray2, marginBottom: "1.25rem", letterSpacing: ".04em" }}>
-            Vous avez un projet en tête ? Obtenez une estimation en 2 minutes.
-          </p>
-          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <motion.a
-              href="/devis"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              style={{
-                padding: "13px 32px",
-                background: DS.emerald,
-                color: DS.bg,
-                border: "none",
-                borderRadius: 100,
-                fontFamily: "'DM Mono', monospace",
-                fontSize: ".82rem",
-                letterSpacing: ".08em",
-                cursor: "pointer",
-                textDecoration: "none",
-                display: "inline-block",
-                fontWeight: 700,
-              }}
-            >
-              Demander un devis gratuit →
-            </motion.a>
-            <motion.a
-              href="/contact"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              style={{
-                padding: "13px 32px",
-                background: "transparent",
-                border: `1px solid ${DS.border}`,
-                borderRadius: 100,
-                color: DS.gray2,
-                fontSize: ".82rem",
-                fontFamily: "'DM Mono', monospace",
-                letterSpacing: ".08em",
-                cursor: "pointer",
-                textDecoration: "none",
-                display: "inline-block",
-              }}
-            >
-              Nous contacter
-            </motion.a>
-          </div>
+          <motion.button
+            whileHover={{ y: -2, borderColor: DS.emerald }}
+            whileTap={{ scale: 0.97 }}
+            style={{
+              padding: "12px 32px",
+              background: "transparent",
+              border: `1px solid ${DS.border}`,
+              borderRadius: 100,
+              color: DS.gray2,
+              fontSize: ".82rem",
+              fontFamily: "'DM Mono', monospace",
+              letterSpacing: ".08em",
+              cursor: "pointer",
+              transition: "border-color .2s, color .2s",
+            }}
+            onMouseEnter={e => e.currentTarget.style.color = DS.white}
+            onMouseLeave={e => e.currentTarget.style.color = DS.gray2}
+          >
+            Voir tous les projets (120+)
+          </motion.button>
         </motion.div>
       </div>
 

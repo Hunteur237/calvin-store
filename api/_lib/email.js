@@ -1,7 +1,7 @@
 // /api/_lib/email.js
 // Envoie un email via l'API Resend. Utilisé par /api/notify.js et /api/monetbil-notify.js.
 
-const FROM = process.env.MAIL_FROM || "INFO-TECH <onboarding@resend.dev>";
+const FROM = process.env.MAIL_FROM || "Calvin Telecom <onboarding@resend.dev>";
 
 export async function sendEmail({ to, subject, html, replyTo }) {
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
@@ -31,12 +31,18 @@ export async function sendEmail({ to, subject, html, replyTo }) {
   }
 }
 
+const SITE_URL = process.env.SITE_URL || "https://calvin-telecom.vercel.app";
+const LOGO_URL = `${SITE_URL}/img/logo-mark-128.png`;
+
 const wrap = (title, bodyHtml) => `
-<div style="font-family:Arial,sans-serif;background:#0A0B10;padding:32px;">
-  <div style="max-width:520px;margin:0 auto;background:#13151F;border:1px solid #1E2136;border-radius:14px;padding:28px;">
-    <div style="color:#4ADE80;font-size:13px;letter-spacing:.08em;font-weight:bold;margin-bottom:14px;">INFO-TECH</div>
-    <h2 style="color:#fff;font-size:18px;margin:0 0 16px;">${title}</h2>
-    <div style="color:#9CA3AF;font-size:14px;line-height:1.6;">${bodyHtml}</div>
+<div style="font-family:Arial,sans-serif;background:#F1F5F9;padding:32px;">
+  <div style="max-width:520px;margin:0 auto;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:14px;padding:28px;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+      <img src="${LOGO_URL}" alt="Calvin Telecom" width="34" height="34" style="display:block;width:34px;height:34px;" />
+      <span style="color:#15803D;font-size:13px;letter-spacing:.08em;font-weight:bold;">CALVIN TELECOM</span>
+    </div>
+    <h2 style="color:#0B1220;font-size:18px;margin:0 0 16px;">${title}</h2>
+    <div style="color:#54627A;font-size:14px;line-height:1.6;">${bodyHtml}</div>
   </div>
 </div>`;
 
@@ -55,10 +61,10 @@ export const templates = {
       `),
     }),
     client: (d) => d.email ? ({
-      subject: `Nous avons reçu votre message — INFO-TECH`,
+      subject: `Nous avons reçu votre message — Calvin Telecom`,
       html: wrap(`Merci ${d.name?.split(" ")[0] || ""} !`, `
         <p>Votre message a bien été reçu. Notre équipe vous répond généralement sous 24h ouvrées.</p>
-        <p>— L'équipe INFO-TECH</p>
+        <p>— L'équipe Calvin Telecom</p>
       `),
     }) : null,
   },
@@ -74,7 +80,7 @@ export const templates = {
       `),
     }),
     client: (d) => d.email ? ({
-      subject: `Votre demande de rendez-vous — INFO-TECH`,
+      subject: `Votre demande de rendez-vous — Calvin Telecom`,
       html: wrap("Demande reçue", `
         <p>Votre demande de rendez-vous pour le <b>${d.day}</b> à <b>${d.slot}</b> a bien été reçue.</p>
         <p>Nous vous confirmons par téléphone très prochainement.</p>
@@ -93,7 +99,7 @@ export const templates = {
       `),
     }),
     client: (d) => d.email ? ({
-      subject: `Votre devis estimatif — INFO-TECH`,
+      subject: `Votre devis estimatif — Calvin Telecom`,
       html: wrap("Devis reçu", `
         <p>Votre demande de devis (${d.project_type || "projet"}) a bien été reçue.</p>
         <p><b>Estimation indicative :</b> ${Number(d.estimated_total || 0).toLocaleString("fr-FR")} FCFA</p>
@@ -114,7 +120,7 @@ export const templates = {
       `),
     }),
     client: (d) => d.email ? ({
-      subject: `Confirmation de votre commande — INFO-TECH`,
+      subject: `Confirmation de votre commande — Calvin Telecom`,
       html: wrap("Commande enregistrée", `
         <p>Merci ${d.client_name} ! Votre commande de <b>${Number(d.total).toLocaleString("fr-FR")} FCFA</b> a bien été enregistrée.</p>
         <p>Nous vous contactons sous peu pour la livraison.</p>
@@ -131,7 +137,7 @@ export const templates = {
       `),
     }),
     client: (d) => d.email ? ({
-      subject: `Paiement confirmé — INFO-TECH`,
+      subject: `Paiement confirmé — Calvin Telecom`,
       html: wrap("Paiement reçu", `
         <p>Nous confirmons la réception de votre paiement de <b>${Number(d.total).toLocaleString("fr-FR")} FCFA</b>.</p>
         <p>Votre commande est en préparation.</p>

@@ -16,7 +16,7 @@ import {
 } from "framer-motion";
 
 /* ============================================================
-   DESIGN SYSTEM — INFO.TECH
+   DESIGN SYSTEM — CALVIN TELECOM
    Partie 4 : "Terminal Commerce"
    Aesthetic : Brutalist data-dense · Industrial precision
    Fonts     : Archivo Black (display) · Azeret Mono (body/code)
@@ -59,7 +59,7 @@ const LIGHT_B = {
 };
 
 // DS mutable : réécrit par le thème actif (voir BoutiqueSection / CartDrawer).
-const DS = { ...DARK_B };
+const DS = { ...LIGHT_B };
 
 const FONTS = `https://fonts.googleapis.com/css2?family=Archivo+Black&family=Azeret+Mono:wght@300;400;500;600&display=swap`;
 
@@ -69,21 +69,21 @@ const FONTS = `https://fonts.googleapis.com/css2?family=Archivo+Black&family=Aze
    PRODUCTS DATA
    ============================================================ */
 const PRODUCTS = [
-  { id:"k1", name:"Laptop Dell XPS 15",      cat:"Ordinateurs",    price:585000, oldPrice:640000, stock:4,  badge:"Promo",   rating:4.8, reviews:24, img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&h=380&fit=crop&q=80", desc:"Intel Core i7-13700H · 32GB DDR5 · 1TB NVMe SSD · OLED 15.6\" 3.5K · RTX 4060" },
-  { id:"k2", name:"Switch HP 1920S 24G",      cat:"Réseau",         price:138000, oldPrice:null,   stock:9,  badge:"Stock",   rating:4.6, reviews:11, img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=380&fit=crop&q=80", desc:"24 ports Gigabit manageable · 4 SFP · VLAN 802.1Q · QoS · Rack 1U" },
-  { id:"k3", name:"Écran LG UltraWide 34\"",  cat:"Périphériques",  price:215000, oldPrice:248000, stock:3,  badge:"Promo",   rating:4.9, reviews:37, img:"https://images.unsplash.com/photo-1527443224154-c4a573d5f5de?w=500&h=380&fit=crop&q=80", desc:"34\" IPS Nano · 3440×1440 · 144Hz · HDR400 · USB-C 96W · 2× HDMI 2.1" },
-  { id:"k4", name:"SSD Samsung 990 Pro 2TB",  cat:"Stockage",       price:88000,  oldPrice:null,   stock:18, badge:null,      rating:5.0, reviews:52, img:"https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=500&h=380&fit=crop&q=80", desc:"NVMe PCIe 4.0 · 7 450 Mo/s lecture · 6 900 Mo/s écriture · Garantie 5 ans" },
-  { id:"k5", name:"Clavier Keychron Q1 Pro",  cat:"Périphériques",  price:62000,  oldPrice:72000,  stock:7,  badge:"Promo",   rating:4.7, reviews:18, img:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&h=380&fit=crop&q=80", desc:"75% layout · Aluminium CNC · Switch Gateron Pro Red · RGB · Bluetooth 5.1" },
-  { id:"k6", name:"Routeur Ubiquiti UniFi 6", cat:"Réseau",         price:112000, oldPrice:null,   stock:5,  badge:"Nouveau", rating:4.8, reviews:9,  img:"https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=500&h=380&fit=crop&q=80", desc:"Wi-Fi 6 · 4× 4 MIMO · Couverture 300m² · PoE+ · Contrôlé via UniFi App" },
-  { id:"k7", name:"Casque Sony XM5",          cat:"Audio",          price:195000, oldPrice:228000, stock:6,  badge:"Promo",   rating:4.9, reviews:61, img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=380&fit=crop&q=80", desc:"ANC multi-points leader · 30h autonomie · Bluetooth 5.2 · LDAC Hi-Res" },
-  { id:"k8", name:"Webcam Logitech Brio 4K",  cat:"Périphériques",  price:78000,  oldPrice:null,   stock:11, badge:null,      rating:4.6, reviews:29, img:"https://images.unsplash.com/photo-1551636898-47668aa61de2?w=500&h=380&fit=crop&q=80", desc:"4K 30fps · 1080p 60fps · HDR · Autofocus IA · Micro stéréo · USB-C" },
-  { id:"k9", name:"UPS APC 1500VA",           cat:"Électronique",   price:145000, oldPrice:160000, stock:4,  badge:"Promo",   rating:4.7, reviews:15, img:"https://images.unsplash.com/photo-1589792923962-537704632910?w=500&h=380&fit=crop&q=80", desc:"900W · 8 prises · Surge protection · LCD · USB manageable · Run time 12min" },
-  { id:"k10",name:"Hub USB-C 12-en-1",        cat:"Câbles",         price:32000,  oldPrice:38000,  stock:25, badge:"Promo",   rating:4.5, reviews:44, img:"https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&h=380&fit=crop&q=80", desc:"HDMI 4K · DP 1.4 · 3× USB-A 3.0 · USB-C PD 100W · SD/MicroSD · Ethernet" },
-  { id:"k11",name:"Raspberry Pi 5 — 8GB",     cat:"Électronique",   price:48000,  oldPrice:null,   stock:8,  badge:"Nouveau", rating:4.9, reviews:33, img:"https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&h=380&fit=crop&q=80", desc:"ARM Cortex-A76 2.4GHz · 8GB LPDDR4X · PCIe 2.0 · USB 3.0 · HDMI 4K×2" },
-  { id:"k12",name:"Disque NAS Seagate 8TB",   cat:"Stockage",       price:115000, oldPrice:null,   stock:6,  badge:null,      rating:4.6, reviews:21, img:"https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=500&h=380&fit=crop&q=80", desc:"IronWolf Pro NAS · 7200 RPM · CMR · AgileArray · MTBF 1.2M heures" },
+  { id:"k1", name:"iPhone 15 Pro 256GB",        cat:"Téléphones",   price:780000, oldPrice:850000, stock:6,  badge:"Promo",   rating:4.9, reviews:41, img:"https://images.unsplash.com/photo-1592286927505-1def25115558?w=500&h=380&fit=crop&q=80", desc:"Puce A17 Pro · Écran Super Retina XDR 6.1\" · Triple caméra 48MP · 5G" },
+  { id:"k2", name:"Samsung Galaxy S24",          cat:"Téléphones",   price:520000, oldPrice:null,   stock:9,  badge:"Nouveau", rating:4.7, reviews:19, img:"https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=500&h=380&fit=crop&q=80", desc:"Écran Dynamic AMOLED 6.2\" · 128GB · Triple caméra 50MP · 5G" },
+  { id:"k3", name:"Laptop Dell XPS 15",          cat:"Ordinateurs",  price:585000, oldPrice:640000, stock:4,  badge:"Promo",   rating:4.8, reviews:24, img:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&h=380&fit=crop&q=80", desc:"Intel Core i7-13700H · 32GB DDR5 · 1TB NVMe SSD · OLED 15.6\" 3.5K" },
+  { id:"k4", name:"MacBook Air M2",              cat:"Ordinateurs",  price:695000, oldPrice:null,   stock:5,  badge:"Nouveau", rating:4.9, reviews:33, img:"https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=500&h=380&fit=crop&q=80", desc:"Puce Apple M2 · 8GB RAM · 256GB SSD · Écran Liquid Retina 13.6\"" },
+  { id:"k5", name:"Écouteurs sans fil Pro",      cat:"Accessoires",  price:38000,  oldPrice:45000,  stock:22, badge:"Promo",   rating:4.6, reviews:58, img:"https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&h=380&fit=crop&q=80", desc:"Réduction de bruit active · Autonomie 24h · Bluetooth 5.3" },
+  { id:"k6", name:"Chargeur secteur double USB DEPIN", cat:"Accessoires",  price:8000,   oldPrice:null,   stock:40, badge:null,      rating:4.5, reviews:27, img:"/img/boutique/chargeur-depin.jpg", desc:"2 ports USB · Sortie 2.4A · Charge simultanée · Protection surcharge · Format ultra-compact" },
+  { id:"k7", name:"Powerbank 20000mAh",          cat:"Accessoires",  price:22000,  oldPrice:26000,  stock:30, badge:"Promo",   rating:4.7, reviews:35, img:"https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500&h=380&fit=crop&q=80", desc:"20000mAh · Charge rapide 22.5W · 2 ports USB + 1 USB-C" },
+  { id:"k8", name:"Smart TV LED 55\" 4K",        cat:"TV",           price:365000, oldPrice:410000, stock:5,  badge:"Promo",   rating:4.8, reviews:22, img:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=500&h=380&fit=crop&q=80", desc:"4K UHD · Smart TV Android · HDR10 · 3× HDMI · WiFi intégré" },
+  { id:"k9", name:"Smart TV LED 43\" Full HD",   cat:"TV",           price:210000, oldPrice:null,   stock:8,  badge:"Stock",   rating:4.6, reviews:14, img:"https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=500&h=380&fit=crop&q=80", desc:"Full HD 1080p · Smart TV · 2× HDMI · USB · Netflix & YouTube intégrés" },
+  { id:"k10",name:"Montre connectée Sport",      cat:"Gadgets Connectés", price:58000, oldPrice:68000, stock:16, badge:"Promo", rating:4.7, reviews:29, img:"https://images.unsplash.com/photo-1544117519-31a4b719223d?w=500&h=380&fit=crop&q=80", desc:"Suivi cardiaque · GPS · Étanche 5ATM · Autonomie 10 jours" },
+  { id:"k11",name:"Caméra de surveillance WiFi", cat:"Gadgets Connectés", price:32000, oldPrice:null,  stock:20, badge:"Nouveau", rating:4.5, reviews:18, img:"https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=500&h=380&fit=crop&q=80", desc:"Full HD 1080p · Vision nocturne · Détection de mouvement · App mobile" },
+  { id:"k12",name:"Enceinte Bluetooth portable", cat:"Gadgets Connectés", price:28000, oldPrice:33000, stock:24, badge:"Promo", rating:4.6, reviews:31, img:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=380&fit=crop&q=80", desc:"Étanche IPX7 · Autonomie 12h · Bluetooth 5.0 · Basses renforcées" },
 ];
 
-const CATS = ["Tous", "Ordinateurs", "Périphériques", "Réseau", "Stockage", "Audio", "Électronique", "Câbles"];
+const CATS = ["Tous", "Téléphones", "Ordinateurs", "Accessoires", "TV", "Gadgets Connectés"];
 
 /* ============================================================
    HELPERS
@@ -429,7 +429,7 @@ function CheckoutBtn() {
         items: items.map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.qty })),
         total,
         payment_method: payMethod,
-        payment_status: payMethod === "mobile_money" ? "en_attente" : "non_requis",
+        payment_status: (payMethod === "mobile_money" || payMethod === "paypal") ? "en_attente" : "non_requis",
       });
       notify("order", { ...order });
 
@@ -452,6 +452,17 @@ function CheckoutBtn() {
         }
         toast(data.message || "Impossible de lancer le paiement Mobile Money", "warn");
         setLoading(false);
+        return;
+      }
+
+      if (payMethod === "paypal") {
+        // NOTE : lien PayPal.me simple, sans clé API. Remplacer "CalvinTelecom" par le
+        // véritable identifiant PayPal.me de l'entreprise avant mise en production.
+        // Pour un vrai encaissement automatisé (webhooks, devises multiples), prévoir
+        // une intégration PayPal Checkout côté serveur (clientId/secret PayPal).
+        const usdAmount = Math.max(1, Math.round(total / 610));
+        clear();
+        window.location.href = `https://www.paypal.me/CalvinTelecom/${usdAmount}USD`;
         return;
       }
 
@@ -478,7 +489,8 @@ function CheckoutBtn() {
 
         <div style={{ display: "flex", gap: 8, marginBottom: 10 }}>
           {[
-            { id: "mobile_money", label: "Mobile Money", icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> },
+            { id: "mobile_money", label: "Carte / Mobile Money", icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> },
+            { id: "paypal", label: "PayPal (international)", icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h20M12 2v20"/></svg> },
             { id: "livraison", label: "À la livraison", icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg> },
           ].map(opt => (
             <button
@@ -486,7 +498,7 @@ function CheckoutBtn() {
               onClick={() => setPayMethod(opt.id)}
               style={{
                 flex: 1, padding: "9px 6px", borderRadius: 8, cursor: "pointer",
-                fontFamily: "'Azeret Mono', monospace", fontSize: ".72rem",
+                fontFamily: "'Azeret Mono', monospace", fontSize: ".68rem",
                 border: `1px solid ${payMethod === opt.id ? DS.lime : DS.border}`,
                 background: payMethod === opt.id ? `${DS.lime}1a` : "transparent",
                 color: payMethod === opt.id ? DS.lime : DS.gray2,
@@ -513,9 +525,9 @@ function CheckoutBtn() {
               <>
                 <motion.span animate={{ rotate: 360 }} transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
                   style={{ display: "block", width: 14, height: 14, border: `2px solid ${DS.bg}`, borderTopColor: "transparent", borderRadius: "50%" }} />
-                {payMethod === "mobile_money" ? "Redirection..." : "Envoi..."}
+                {payMethod === "mobile_money" || payMethod === "paypal" ? "Redirection..." : "Envoi..."}
               </>
-            ) : (payMethod === "mobile_money" ? "Payer maintenant →" : "Valider la commande")}
+            ) : (payMethod === "mobile_money" || payMethod === "paypal" ? "Payer maintenant →" : "Valider la commande")}
           </motion.button>
           <button
             onClick={() => setShowForm(false)}
@@ -525,7 +537,9 @@ function CheckoutBtn() {
         </div>
         <div style={{ marginTop: 8, fontSize: ".68rem", color: DS.gray2, fontFamily: "'Azeret Mono', monospace" }}>
           {payMethod === "mobile_money"
-            ? "Tu seras redirigé vers la page sécurisée Monetbil pour valider le paiement avec ton code Mobile Money."
+            ? "Tu seras redirigé vers la page sécurisée Monetbil pour payer par carte bancaire, Orange Money ou MTN Mobile Money."
+            : payMethod === "paypal"
+            ? "Paiement international via PayPal — tu seras redirigé vers une page PayPal sécurisée."
             : "Paiement en espèces ou Mobile Money à la réception. Nous vous contactons pour confirmer."}
         </div>
       </div>
@@ -1252,7 +1266,7 @@ export default function BoutiqueSection() {
   Object.assign(DS, theme === "light" ? LIGHT_B : DARK_B);
   const [cartOpen, setCartOpen]   = useState(false);
   const [activeCat, setActiveCat] = useState("Tous");
-  const [priceMax, setPriceMax]   = useState(640000);
+  const [priceMax, setPriceMax]   = useState(850000);
   const [inStockOnly, setInStock] = useState(false);
   const [view, setView]           = useState("grid");
   const [sort, setSort]           = useState("");
@@ -1285,7 +1299,7 @@ export default function BoutiqueSection() {
   const titleRef   = useRef(null);
   const titleInView = useInView(titleRef, { once: true, margin: "-60px" });
 
-  const maxPossible = 640000;
+  const maxPossible = 850000;
 
   /* Filter + sort */
   let visible = catalog.filter(p => {
@@ -1383,16 +1397,16 @@ function BoutiqueInner({
                 fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
                 color: DS.white, lineHeight: 1, letterSpacing: ".02em",
               }}>
-                Matériel<br />
+                Tech &<br />
                 <span style={{ WebkitTextFillColor: "transparent", WebkitTextStroke: `2px ${DS.lime}` }}>
-                  Informatique
+                  Innovation
                 </span>
               </h2>
               <p style={{
                 color: DS.gray2, fontSize: ".85rem", lineHeight: 1.8,
                 marginTop: "1rem", maxWidth: 420,
               }}>
-                Accessoires et équipements informatiques disponibles à Douala. Livraison 24–48h, garantie constructeur.
+                Téléphones, ordinateurs, TV et gadgets connectés. Livraison Douala, Yaoundé, tout le Cameroun + expédition internationale.
               </p>
             </div>
 
