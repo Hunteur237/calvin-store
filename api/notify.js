@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).end();
 
   const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
-  const ADMIN_PHONE = process.env.ADMIN_PHONE; // ex: +23776075720
+  const ADMIN_PHONE = process.env.ADMIN_PHONE; // ex: +237655856634
   const { type, data } = req.body || {};
 
   const tpl    = templates[type];

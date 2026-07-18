@@ -173,7 +173,7 @@ export default function Hero({ onRdvOpen }) {
               {I18N.hero.ctaBuy[lang]} <IconArrow />
             </Link>
             <a
-              href="https://wa.me/23776075720?text=Bonjour%20Calvin%20Telecom%2C%20je%20souhaite%20des%20infos%20sur%20vos%20produits."
+              href="https://wa.me/237655856634?text=Bonjour%20Calvin%20Telecom%2C%20je%20souhaite%20des%20infos%20sur%20vos%20produits."
               target="_blank"
               rel="noopener noreferrer"
               style={{

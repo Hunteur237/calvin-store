@@ -66,7 +66,7 @@ const PROJECTS = [
     budget: "3 500 000 FCFA",
     role: "Fullstack + Design",
     stack: ["React", "Node.js", "MongoDB", "MTN API", "Figma"],
-    desc: "Plateforme marketplace B2B permettant à 200+ PME camerounaises de vendre en ligne avec intégration Mobile Money (MTN, Orange), gestion des stocks en temps réel, tableau de bord analytique et système de notation vendeurs.",
+    desc: "Plateforme marketplace B2B permettant à 200+ PME camerounaises de vendre en ligne avec intégration Mobile Money (Orange, MTN), gestion des stocks en temps réel, tableau de bord analytique et système de notation vendeurs.",
     challenge: "Intégrer le paiement Mobile Money dans un environnement sans infrastructure bancaire stable, tout en maintenant une UX irréprochable sur des connexions lentes.",
     result: "Concept : marketplace B2B pour connecter fournisseurs et acheteurs africains. Développement sur devis.",
     img: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&h=700&fit=crop&q=80",

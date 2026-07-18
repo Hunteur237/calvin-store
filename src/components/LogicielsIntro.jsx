@@ -98,7 +98,7 @@ export default function LogicielsIntro() {
               Décrivez-nous votre projet, nous revenons vers vous avec un devis clair sous 24h.
             </p>
             <a
-              href="https://wa.me/23776075720?text=Bonjour%20Calvin%20Telecom%2C%20je%20souhaite%20discuter%20d'un%20projet%20de%20logiciel."
+              href="https://wa.me/237655856634?text=Bonjour%20Calvin%20Telecom%2C%20je%20souhaite%20discuter%20d'un%20projet%20de%20logiciel."
               target="_blank"
               rel="noopener noreferrer"
               style={{

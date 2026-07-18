@@ -135,7 +135,7 @@ export default function ArtisanatSection() {
         {/* CTA */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: 14, flexWrap: 'wrap' }}>
           <a
-            href="https://wa.me/23776075720?text=Bonjour%20Calvin%20Telecom%2C%20je%20souhaite%20commander%20un%20article%20artisanal."
+            href="https://wa.me/237655856634?text=Bonjour%20Calvin%20Telecom%2C%20je%20souhaite%20commander%20un%20article%20artisanal."
             target="_blank"
             rel="noopener noreferrer"
             style={{

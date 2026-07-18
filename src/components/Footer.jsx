@@ -27,8 +27,8 @@ const SERVICES_LINKS = [
 ]
 
 const CONTACTS = [
-  { icon: <IconPhone />,  label: 'Téléphone',  value: '+237 76 07 57 20', href: 'tel:+23776075720' },
-  { icon: <IconWa />,     label: 'WhatsApp',   value: '+237 76 07 57 20', href: 'https://wa.me/23776075720' },
+  { icon: <IconPhone />,  label: 'Téléphone',  value: '+237 655 856 634', href: 'tel:+237655856634' },
+  { icon: <IconWa />,     label: 'WhatsApp',   value: '+237 655 856 634', href: 'https://wa.me/237655856634' },
   { icon: <IconMail />,   label: 'Email',      value: 'contact@calvintelecom.com', href: 'mailto:contact@calvintelecom.com' },
   { icon: <IconMapPin />, label: 'Adresse',    value: 'Douala, Cameroun · Livraison internationale' },
   { icon: <IconClock />,  label: 'Horaires',   value: 'Lun – Sam · 8h – 18h' },
@@ -37,7 +37,7 @@ const CONTACTS = [
 const SOCIALS = [
   { icon: <IconFb />,       href: '#',                             label: 'Facebook' },
   { icon: <IconLinkedin />, href: '#',                             label: 'LinkedIn' },
-  { icon: <IconWa />,       href: 'https://wa.me/23776075720',    label: 'WhatsApp' },
+  { icon: <IconWa />,       href: 'https://wa.me/237655856634',    label: 'WhatsApp' },
 ]
 
 export default function Footer({ onAdminOpen }) {

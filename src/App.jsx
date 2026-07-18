@@ -138,7 +138,7 @@ function WhatsAppFloat() {
         </div>
       )}
       <a
-        href="https://wa.me/23776075720?text=Bonjour%20Calvin%20Telecom%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20produits%20et%20services."
+        href="https://wa.me/237655856634?text=Bonjour%20Calvin%20Telecom%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20produits%20et%20services."
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setHov(true)}

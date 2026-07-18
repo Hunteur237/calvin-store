@@ -667,7 +667,7 @@ function CtaPanel() {
 
       {/* CTA button */}
       <motion.a
-        href="https://wa.me/23776075720?text=Bonjour%20Calvin%20Telecom%2C%20j'ai%20besoin%20d'un%20service%20tech."
+        href="https://wa.me/237655856634?text=Bonjour%20Calvin%20Telecom%2C%20j'ai%20besoin%20d'un%20service%20tech."
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setHov(true)}
